@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DervLabs — Development. Engineering. Research. Vision.</title>
   <meta name="description" content="DervLabs is a technology consultancy and venture studio building the next generation of digital products across Africa and beyond." />
+  <meta name="theme-color" content="#171719" />
+  <link rel="icon" type="image/svg+xml" href="/assets/dervlabs-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -81,14 +83,15 @@
       backdrop-filter: blur(12px);
     }
     .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--text);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
     }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo img {
+      display: block;
+      width: auto;
+      height: 2rem;
+    }
     .nav-links {
       display: flex;
       gap: 2.5rem;
@@ -530,12 +533,15 @@
       align-items: center;
     }
     .footer-logo {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
+      display: inline-flex;
+      align-items: center;
     }
-    .footer-logo span { color: var(--accent); }
+    .footer-logo img {
+      display: block;
+      width: auto;
+      height: 1.35rem;
+      opacity: 0.66;
+    }
     .footer-copy {
       font-family: var(--font-mono);
       font-size: 0.65rem;
@@ -577,6 +583,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 1.25rem 2rem; }
+      .nav-logo img { height: 1.75rem; }
       .nav-links { display: none; }
       .hero { padding: 7rem 2rem 4rem; }
       .divider { margin: 0 2rem; }
@@ -597,7 +604,9 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo"><span>DERV</span>LABS</a>
+  <a href="#" class="nav-logo" aria-label="DervLabs home">
+    <img src="/assets/dervlabs-logo-reversed.svg" alt="DervLabs" width="126" height="32" />
+  </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#ventures">Ventures</a></li>
@@ -796,7 +805,9 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span>DERV</span>LABS</div>
+  <div class="footer-logo">
+    <img src="/assets/dervlabs-logo-reversed.svg" alt="DervLabs" width="99" height="25" />
+  </div>
   <p class="footer-copy">© 2025 DervLabs. All rights reserved.</p>
   <ul class="footer-links">
     <li><a href="#about">About</a></li>

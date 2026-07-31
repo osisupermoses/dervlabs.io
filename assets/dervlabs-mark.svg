@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320.000" height="320.000" viewBox="0 0 320.000 320.000" role="img" aria-labelledby="title desc">
+  <title id="title">DervLabs logo</title>
+  <desc id="desc">Four asymmetric modules represent Development, Engineering, Research, and Vision.</desc>
+  <rect width="320.000" height="320.000" fill="#171719"/>
+  <g transform="translate(70.000 70.000) scale(0.750000)"><path fill="#FBF5EA" d="M20 0H138C143.523 0 148 4.477 148 10V82H107V110H20C8.954 110 0 101.046 0 90V20C0 8.954 8.954 0 20 0Z"/>
+<path fill="#FBF5EA" d="M187 0H240V120H187Z"/>
+<path fill="#FBF5EA" d="M0 142H108V166H25V216H108V240H0Z"/>
+<path fill="#C66A2B" d="M137 172H151C171 172 187 157 187 142H240V215L215 240H137Z"/></g>
+</svg>
