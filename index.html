@@ -26,7 +26,7 @@
     "alternateName": "DervLabs",
     "url": "https://www.dervlabs.io/",
     "logo": "https://www.dervlabs.io/assets/dervlabs-avatar-512.png",
-    "email": "owner@dervlabs.io",
+    "email": "support@dervlabs.io",
     "telephone": "+2348038223961",
     "foundingDate": "2025",
     "address": {
@@ -219,6 +219,20 @@
       transition: filter 0.2s, transform 0.2s;
     }
     .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-secondary {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 1px solid var(--border-accent);
+      padding: calc(0.95rem - 1px) 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--copper); background: var(--accent-soft); transform: translateY(-1px); }
     .btn-ghost {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -725,6 +739,9 @@
       .ventures, .services, .about, .contact { padding-top: 5rem; padding-bottom: 5rem; }
       .venture-card { padding: 2rem 1.5rem; }
       .venture-features { grid-template-columns: 1fr; }
+      .venture-actions { gap: 1rem; }
+      .venture-actions .btn-primary, .venture-actions .btn-secondary { width: 100%; text-align: center; padding-left: 1rem; padding-right: 1rem; white-space: nowrap; }
+      .venture-actions .btn-ghost { margin-top: 0.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .service-item { padding: 2rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -760,7 +777,7 @@
   <div class="hero-orb" aria-hidden="true"></div>
   <a class="hero-announce" href="#ventures">
     <span class="live-dot" aria-hidden="true"></span>
-    <span><strong>StrictlyByIV is live</strong> — now on Google Play</span>
+    <span><strong>StrictlyByIV is live</strong> — on Google Play &amp; the App Store</span>
     <span class="arrow" aria-hidden="true">→</span>
   </a>
   <h1 class="hero-title">
@@ -810,6 +827,7 @@
       </ul>
       <div class="venture-actions">
         <a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv" class="btn-primary" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a href="https://apps.apple.com/app/id6761930760" class="btn-secondary" target="_blank" rel="noopener">Download on the App Store</a>
         <a href="https://www.strictlybyiv.com" class="btn-ghost" target="_blank" rel="noopener">strictlybyiv.com</a>
       </div>
       <div class="venture-meta">
@@ -828,7 +846,7 @@
         We are researching and prototyping our next venture. Each one starts with a problem we have seen up close, and ships only when it holds up in the real world.
       </p>
       <div class="venture-actions">
-        <a href="mailto:owner@dervlabs.io?subject=DervLabs%20ventures" class="btn-ghost">Talk to us about it</a>
+        <a href="mailto:support@dervlabs.io?subject=DervLabs%20ventures" class="btn-ghost">Talk to us about it</a>
       </div>
     </article>
   </div>
@@ -931,7 +949,7 @@
     <p>
       Looking for a technical partner, exploring a collaboration or just want to talk through an idea? Send us a note and we will reply within 48 hours.
     </p>
-    <a href="mailto:owner@dervlabs.io" class="contact-email">owner@dervlabs.io</a>
+    <a href="mailto:support@dervlabs.io" class="contact-email">support@dervlabs.io</a>
     <div class="contact-info">
       <div class="contact-row">
         <span class="contact-row-label">Phone</span>
