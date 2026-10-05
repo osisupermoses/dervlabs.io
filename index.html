@@ -3,34 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DervLabs — Development. Engineering. Research. Vision.</title>
-  <meta name="description" content="DervLabs is a technology consultancy and venture studio building the next generation of digital products across Africa and beyond." />
+  <title>DervLabs — Product studio &amp; technology consultancy</title>
+  <meta name="description" content="DervLabs is a Nigerian product studio and technology consultancy. We build and run our own ventures, including StrictlyByIV, and engineer software for teams across Africa and beyond." />
+  <link rel="canonical" href="https://www.dervlabs.io/" />
   <meta name="theme-color" content="#171719" />
   <link rel="icon" type="image/svg+xml" href="/assets/dervlabs-mark.svg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DervLabs" />
+  <meta property="og:url" content="https://www.dervlabs.io/" />
+  <meta property="og:title" content="DervLabs — Product studio &amp; technology consultancy" />
+  <meta property="og:description" content="We build and run our own ventures, and engineer software for teams across Africa and beyond." />
+  <meta property="og:image" content="https://www.dervlabs.io/assets/dervlabs-avatar-512.png" />
+  <meta name="twitter:card" content="summary" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DervLabs Ltd",
+    "alternateName": "DervLabs",
+    "url": "https://www.dervlabs.io/",
+    "logo": "https://www.dervlabs.io/assets/dervlabs-avatar-512.png",
+    "email": "owner@dervlabs.io",
+    "telephone": "+2348038223961",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "9, Salami Somade Estate, Basorun",
+      "addressLocality": "Ibadan",
+      "addressRegion": "Oyo",
+      "addressCountry": "NG"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Brand: Derv Charcoal #171719 · Workshop Copper #C66A2B · Studio Ivory #FBF5EA */
     :root {
-      --bg: #080b0f;
-      --bg2: #0e1318;
-      --bg3: #141b22;
-      --border: rgba(255,255,255,0.07);
-      --border-accent: rgba(255,255,255,0.15);
-      --text: #e8edf2;
-      --text-muted: #6b7a8a;
-      --text-dim: #3d4e5e;
-      --accent: #c8a96e;
-      --accent2: #4a8fa8;
-      --accent-glow: rgba(200,169,110,0.15);
+      --bg: #121214;
+      --bg2: #171719;
+      --border: rgba(251,245,234,0.08);
+      --border-accent: rgba(251,245,234,0.18);
+      --text: #fbf5ea;
+      --text-muted: #a8a196;
+      --text-dim: #77716a;
+      --copper: #c66a2b;
+      --accent: #e08a4f;          /* copper lifted for text contrast on charcoal */
+      --accent-soft: rgba(198,106,43,0.12);
+      --live: #5fbf7f;
       --font-serif: 'DM Serif Display', Georgia, serif;
-      --font-mono: 'DM Mono', monospace;
-      --font-sans: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', ui-monospace, monospace;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+      --gutter: 4rem;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
     body {
       background: var(--bg);
@@ -39,10 +73,26 @@
       font-weight: 300;
       line-height: 1.6;
       overflow-x: hidden;
-      cursor: default;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NOISE OVERLAY ── */
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem; top: -3rem;
+      z-index: 200;
+      background: var(--copper);
+      color: var(--text);
+      padding: 0.6rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── BACKGROUND ── */
     body::before {
       content: '';
       position: fixed;
@@ -52,14 +102,12 @@
       z-index: 9999;
       opacity: 0.4;
     }
-
-    /* ── GRID BACKGROUND ── */
     .grid-bg {
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        linear-gradient(rgba(251,245,234,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(251,245,234,0.018) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -73,27 +121,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 4rem;
+      padding: 1.5rem var(--gutter);
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s, background 0.3s;
+      transition: border-color 0.3s, background 0.3s, padding 0.3s;
     }
     nav.scrolled {
       border-color: var(--border);
-      background: rgba(8,11,15,0.85);
+      background: rgba(18,18,20,0.85);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
-    .nav-logo {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-    }
-    .nav-logo img {
-      display: block;
-      width: auto;
-      height: 2rem;
-    }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo img { display: block; width: auto; height: 2rem; }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 2.5rem;
       list-style: none;
     }
@@ -107,162 +151,34 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-
-    /* ── SECTIONS ── */
-    section { position: relative; z-index: 1; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8rem 4rem 6rem;
-      position: relative;
-      overflow: hidden;
+    .nav-links .nav-cta {
+      color: var(--text);
+      border: 1px solid var(--border-accent);
+      padding: 0.55rem 1rem;
+      transition: border-color 0.2s, background 0.2s;
     }
+    .nav-links .nav-cta:hover { border-color: var(--copper); background: var(--accent-soft); }
 
-    .hero-orb {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,110,0.06) 0%, transparent 70%);
-      top: 50%;
-      right: -100px;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-    .hero-orb2 {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(74,143,168,0.05) 0%, transparent 70%);
-      bottom: 10%;
-      left: 5%;
-      pointer-events: none;
-    }
-
-    .hero-label {
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-accent);
+      color: var(--text);
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      max-width: 800px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.4s forwards;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      margin-top: 2.5rem;
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 500px;
-      line-height: 1.7;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.6s forwards;
-    }
-
-    .hero-acronym {
-      margin-top: 3.5rem;
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.8s forwards;
-    }
-    .acronym-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-    }
-    .acronym-letter {
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-    .acronym-word {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
-
-    .hero-cta {
-      margin-top: 3.5rem;
-      display: flex;
-      gap: 1.25rem;
-      align-items: center;
-      opacity: 0;
-      animation: fadeUp 0.8s 1s forwards;
-    }
-    .btn-primary {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      border: none;
-      padding: 0.9rem 2rem;
+      padding: 0.5rem 0.8rem;
       cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-    .btn-ghost {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
-    }
-    .btn-ghost:hover { color: var(--text); }
-    .btn-ghost::after { content: '→'; transition: transform 0.2s; }
-    .btn-ghost:hover::after { transform: translateX(4px); }
-
-    /* ── DIVIDER ── */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
-      margin: 0 4rem;
     }
 
-    /* ── ABOUT ── */
-    .about {
-      padding: 8rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
+    /* ── SHARED ── */
+    section { position: relative; z-index: 1; }
+    .container { padding-left: var(--gutter); padding-right: var(--gutter); }
+
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -271,24 +187,350 @@
       align-items: center;
       gap: 0.75rem;
     }
-    .section-label::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
-    .about-title {
+    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--copper); }
+
+    .section-title {
       font-family: var(--font-serif);
+      font-weight: 400;
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.15;
       letter-spacing: -0.01em;
     }
-    .about-title em { font-style: italic; color: var(--accent); }
-    .about-body {
-      padding-top: 0.5rem;
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-intro {
+      margin-top: 1.25rem;
+      max-width: 34rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: var(--copper);
+      padding: 0.95rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: filter 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+    .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    .btn-ghost:hover::after { transform: translateX(4px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute;
+      width: 640px; height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(198,106,43,0.09) 0%, transparent 70%);
+      top: 50%; right: -120px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .hero-announce {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border-accent);
+      background: rgba(23,23,25,0.6);
+      padding: 0.5rem 0.9rem 0.5rem 0.75rem;
+      margin-bottom: 2.25rem;
+      transition: border-color 0.2s, color 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+    .hero-announce:hover { border-color: var(--copper); color: var(--text); }
+    .hero-announce strong { color: var(--text); font-weight: 500; }
+    .hero-announce .arrow { color: var(--accent); }
+
+    .live-dot {
+      position: relative;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--live);
+      flex-shrink: 0;
+    }
+    .live-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid var(--live);
+      opacity: 0;
+      animation: pulse 2.4s ease-out infinite;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(3rem, 7.5vw, 6.75rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      max-width: 15ch;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      margin-top: 2.25rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+
+    .hero-acronym {
+      margin-top: 4.5rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      max-width: 40rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+    .acronym-item { display: flex; align-items: baseline; gap: 0.5rem; }
+    .acronym-letter {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .acronym-word {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── VENTURES ── */
+    .ventures {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ventures-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .venture-card {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 2.75rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s;
+    }
+    .venture-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--copper);
+    }
+    .venture-card.featured:hover { border-color: var(--border-accent); }
+    .venture-card.in-lab {
+      background: transparent;
+      border-style: dashed;
+      border-color: var(--border-accent);
+    }
+    .venture-card.in-lab::before { display: none; }
+
+    .venture-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .venture-tag .status { color: var(--live); display: inline-flex; align-items: center; gap: 0.55rem; }
+    .venture-tag .sep { color: var(--text-dim); }
+    .in-lab .venture-tag .status { color: var(--text-muted); }
+    .lab-dot { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--text-muted); }
+
+    .venture-name {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .in-lab .venture-name { font-size: 1.6rem; }
+    .venture-desc {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 38rem;
+    }
+
+    .venture-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 2rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .venture-features li {
+      font-size: 0.88rem;
+      color: var(--text);
+      display: flex;
+      gap: 0.7rem;
+      line-height: 1.5;
+    }
+    .venture-features li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      margin-top: 0.5em;
+      background: var(--copper);
+    }
+
+    .venture-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .venture-meta {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .venture-meta strong { color: var(--text-muted); font-weight: 400; }
+
+    .in-lab .venture-desc { font-size: 0.9rem; }
+    .in-lab .venture-actions { margin-top: 2rem; }
+
+    /* ── SERVICES ── */
+    .services { padding-top: 8rem; padding-bottom: 8rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+    .service-item {
+      background: var(--bg);
+      padding: 2.75rem;
+      transition: background 0.3s;
+    }
+    .service-item:hover { background: var(--bg2); }
+    .service-icon {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .service-name {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.45rem;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .service-stack {
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
     }
     .about-body p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-muted);
       line-height: 1.8;
       margin-bottom: 1.25rem;
@@ -298,176 +540,57 @@
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .stat {
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      padding: 1.5rem;
-      background: var(--bg2);
+      margin-top: 3rem;
     }
+    .stat { padding: 1.5rem; background: var(--bg); }
     .stat-num {
       font-family: var(--font-serif);
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       color: var(--accent);
       line-height: 1;
     }
     .stat-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-dim);
-      margin-top: 0.5rem;
-    }
-
-    /* ── VENTURES ── */
-    .ventures {
-      padding: 8rem 4rem;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .ventures-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 4rem;
-    }
-    .ventures-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-    }
-    .ventures-note {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      text-align: right;
-      max-width: 200px;
-    }
-
-    .venture-card {
-      border: 1px solid var(--border);
-      background: var(--bg);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .venture-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-    }
-    .venture-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 100%;
-      background: var(--accent);
-    }
-    .venture-card.coming-soon::before {
-      background: var(--text-dim);
-    }
-
-    .ventures-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .venture-tag {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .venture-tag .dot {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .venture-card.coming-soon .venture-tag,
-    .venture-card.coming-soon .venture-tag .dot {
-      color: var(--text-dim);
-      background: var(--text-dim);
-    }
-
-    .venture-name {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-    .venture-desc {
-      font-size: 0.875rem;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      margin-top: 0.6rem;
     }
-    .venture-link {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s;
-    }
-    .venture-link:hover { gap: 0.7rem; }
-    .venture-card.coming-soon .venture-link { color: var(--text-dim); cursor: default; }
 
-    /* ── SERVICES ── */
-    .services {
-      padding: 8rem 4rem;
-    }
-    .services-grid {
+    .principles {
+      list-style: none;
+      margin-top: 5rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 4rem;
+      gap: 3rem;
+      counter-reset: p;
     }
-    .service-item {
-      background: var(--bg);
-      padding: 2.5rem;
-      transition: background 0.3s;
-    }
-    .service-item:hover { background: var(--bg2); }
-    .service-icon {
+    .principles li { counter-increment: p; border-top: 1px solid var(--border-accent); padding-top: 1.5rem; }
+    .principles li::before {
+      content: counter(p, decimal-leading-zero);
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      letter-spacing: 0.15em;
       color: var(--accent);
-      margin-bottom: 1.25rem;
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 1rem;
     }
-    .service-name {
+    .principles h3 {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
     }
-    .service-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
+    .principles p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
 
     /* ── CONTACT ── */
     .contact {
-      padding: 8rem 4rem;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
+      padding-top: 8rem;
+      padding-bottom: 8rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
@@ -475,87 +598,70 @@
     }
     .contact-title {
       font-family: var(--font-serif);
+      font-weight: 400;
       font-size: clamp(2.5rem, 5vw, 4rem);
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
     .contact-title em { font-style: italic; color: var(--accent); }
-    .contact-body p {
-      font-size: 0.95rem;
+    .contact-body > p {
+      font-size: 1rem;
       color: var(--text-muted);
       line-height: 1.8;
       margin-bottom: 2rem;
     }
     .contact-email {
       font-family: var(--font-mono);
-      font-size: 1rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--accent);
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.75rem;
       transition: gap 0.2s;
+      overflow-wrap: anywhere;
     }
     .contact-email:hover { gap: 1rem; }
     .contact-email::before { content: '→'; }
 
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-row {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-row { display: flex; gap: 1rem; align-items: flex-start; }
     .contact-row-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--text-dim);
       min-width: 80px;
-      padding-top: 0.1rem;
+      padding-top: 0.15rem;
     }
-    .contact-row-val {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
+    .contact-row-val { font-size: 0.92rem; color: var(--text-muted); font-style: normal; }
+    .contact-row-val a { text-decoration: none; transition: color 0.2s; }
+    .contact-row-val a:hover { color: var(--text); }
 
     /* ── FOOTER ── */
     footer {
-      padding: 2rem 4rem;
+      position: relative;
+      z-index: 1;
+      padding: 2rem var(--gutter);
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1.5rem;
     }
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-    }
-    .footer-logo img {
-      display: block;
-      width: auto;
-      height: 1.35rem;
-      opacity: 0.66;
-    }
+    .footer-logo img { display: block; width: auto; height: 1.35rem; opacity: 0.7; }
     .footer-copy {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       letter-spacing: 0.08em;
       color: var(--text-dim);
     }
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; justify-content: center; }
     .footer-links a {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-dim);
@@ -569,271 +675,334 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    .reveal {
+    @keyframes pulse {
+      0% { opacity: 0.7; transform: scale(0.6); }
+      100% { opacity: 0; transform: scale(1.6); }
+    }
+    /* Reveal only hides content when JS is running, so no-JS visitors still see everything */
+    .js .reveal {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .hero-announce, .hero-title, .hero-sub, .hero-cta, .hero-acronym { opacity: 1; }
+      .js .reveal { opacity: 1; transform: none; }
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1.25rem 2rem; }
-      .nav-logo img { height: 1.75rem; }
-      .nav-links { display: none; }
-      .hero { padding: 7rem 2rem 4rem; }
-      .divider { margin: 0 2rem; }
-      .about { padding: 5rem 2rem; grid-template-columns: 1fr; gap: 3rem; }
-      .ventures { padding: 5rem 2rem; }
-      .ventures-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    @media (max-width: 1100px) {
       .ventures-grid { grid-template-columns: 1fr; }
-      .services { padding: 5rem 2rem; }
+    }
+    @media (max-width: 900px) {
+      :root { --gutter: 1.5rem; }
+      nav { padding-top: 1.1rem; padding-bottom: 1.1rem; }
+      .nav-logo img { height: 1.75rem; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem var(--gutter) 1.25rem;
+      }
+      nav.open { background: var(--bg); border-color: var(--border); backdrop-filter: none; -webkit-backdrop-filter: none; }
+      nav.open .nav-links { display: flex; }
+      .nav-links a { display: block; padding: 0.9rem 0; font-size: 0.8rem; }
+      .nav-links .nav-cta { margin-top: 0.75rem; text-align: center; padding: 0.9rem; }
+
+      .hero { padding-top: 7rem; padding-bottom: 4rem; }
+      .hero-orb { width: 420px; height: 420px; right: -200px; }
+      .hero-acronym { gap: 1rem 1.5rem; margin-top: 3.5rem; }
+      .ventures, .services, .about, .contact { padding-top: 5rem; padding-bottom: 5rem; }
+      .venture-card { padding: 2rem 1.5rem; }
+      .venture-features { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .contact { padding: 5rem 2rem; grid-template-columns: 1fr; gap: 3rem; }
-      footer { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .service-item { padding: 2rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .principles { grid-template-columns: 1fr; gap: 2rem; margin-top: 3.5rem; }
+      .contact { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
-
-<div class="grid-bg"></div>
+<script>document.documentElement.classList.add('js');</script>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-bg" aria-hidden="true"></div>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo" aria-label="DervLabs home">
+<nav id="nav" aria-label="Primary">
+  <a href="#home" class="nav-logo" aria-label="DervLabs home">
     <img src="/assets/dervlabs-logo-reversed.svg" alt="DervLabs" width="126" height="32" />
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+  <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#ventures">Ventures</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Start a project</a></li>
   </ul>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-orb"></div>
-  <div class="hero-orb2"></div>
-  <p class="hero-label">dervlabs.io — Est. 2025</p>
+<section class="hero container" id="home">
+  <div class="hero-orb" aria-hidden="true"></div>
+  <a class="hero-announce" href="#ventures">
+    <span class="live-dot" aria-hidden="true"></span>
+    <span><strong>StrictlyByIV is live</strong> — now on Google Play</span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
   <h1 class="hero-title">
-    Building the <em>future</em><br/>of African tech,<br/>one venture at a time.
+    Software built for how Africa <em>actually works.</em>
   </h1>
   <p class="hero-sub">
-    DervLabs is a technology consultancy and venture studio, designing and engineering digital products built to last.
+    DervLabs is a product studio and technology consultancy based in Nigeria. We build and run our own ventures, and bring the same engineering to the teams we partner with.
   </p>
-  <div class="hero-acronym">
-    <div class="acronym-item">
-      <span class="acronym-letter">D</span>
-      <span class="acronym-word">Development</span>
-    </div>
-    <div class="acronym-item">
-      <span class="acronym-letter">E</span>
-      <span class="acronym-word">Engineering</span>
-    </div>
-    <div class="acronym-item">
-      <span class="acronym-letter">R</span>
-      <span class="acronym-word">Research</span>
-    </div>
-    <div class="acronym-item">
-      <span class="acronym-letter">V</span>
-      <span class="acronym-word">Vision</span>
-    </div>
-    <div class="acronym-item">
-      <span class="acronym-letter" style="color:var(--text-muted)">LABS</span>
-    </div>
-  </div>
   <div class="hero-cta">
-    <a href="#ventures" class="btn-primary">Our Ventures</a>
-    <a href="#contact" class="btn-ghost">Get in Touch</a>
+    <a href="#ventures" class="btn-primary">See our work</a>
+    <a href="#contact" class="btn-ghost">Work with us</a>
+  </div>
+  <div class="hero-acronym" role="img" aria-label="DERV: Development, Engineering, Research, Vision">
+    <div class="acronym-item"><span class="acronym-letter">D</span><span class="acronym-word">Development</span></div>
+    <div class="acronym-item"><span class="acronym-letter">E</span><span class="acronym-word">Engineering</span></div>
+    <div class="acronym-item"><span class="acronym-letter">R</span><span class="acronym-word">Research</span></div>
+    <div class="acronym-item"><span class="acronym-letter">V</span><span class="acronym-word">Vision</span></div>
   </div>
 </section>
-
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div>
-    <p class="section-label reveal">About</p>
-    <h2 class="about-title reveal">A studio that thinks<br/><em>beyond the brief.</em></h2>
-    <div class="about-stats reveal">
-      <div class="stat">
-        <div class="stat-num">01</div>
-        <div class="stat-label">Active Venture</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Ideas in Pipeline</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">NG</div>
-        <div class="stat-label">Based in Nigeria</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">25</div>
-        <div class="stat-label">Founded</div>
-      </div>
-    </div>
-  </div>
-  <div class="about-body reveal">
-    <p>
-      DervLabs is a technology consultancy and venture studio headquartered in Nigeria. We exist at the intersection of engineering rigour and product vision — building digital products that solve real problems for real people.
-    </p>
-    <p>
-      We operate as both a parent company and a creative engine, incubating independent ventures across verticals. Each product under the DervLabs umbrella is built with the same commitment to craft, reliability, and long-term thinking.
-    </p>
-    <p>
-      Whether we're shipping product for a client or growing one of our own, the standard is the same: engineering that scales, design that communicates, and software that endures.
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
 
 <!-- VENTURES -->
-<section class="ventures" id="ventures">
-  <div class="ventures-header">
-    <div>
-      <p class="section-label reveal">Portfolio</p>
-      <h2 class="ventures-title reveal">Our Ventures</h2>
-    </div>
-    <p class="ventures-note reveal">More products<br/>in development</p>
-  </div>
+<section class="ventures container" id="ventures">
+  <p class="section-label reveal">Ventures</p>
+  <h2 class="section-title reveal">Products we build, ship <em>and run.</em></h2>
+  <p class="section-intro reveal">
+    Our ventures are where we prove our engineering. We design them, build them and run them in production, with real customers and real money moving through them.
+  </p>
+
   <div class="ventures-grid">
-    <div class="venture-card reveal">
-      <div class="venture-tag"><span class="dot"></span> Beta — Events &amp; Hospitality</div>
+    <article class="venture-card featured reveal">
+      <div class="venture-tag">
+        <span class="status"><span class="live-dot" aria-hidden="true"></span> Live</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Events &amp; Hospitality</span>
+      </div>
       <h3 class="venture-name">StrictlyByIV</h3>
       <p class="venture-desc">
-        A modern event planning and management platform built for the Nigerian market. From intimate gatherings to large-scale productions — StrictlyByIV streamlines the entire event lifecycle for organisers and guests alike.
+        An all-in-one event planning platform and marketplace for Nigeria. Hosts plan their events and book the people who make them happen, from planners and vendors to venues. Providers get a storefront, bookings and secure payouts.
       </p>
-      <a href="https://strictlybyiv.com" class="venture-link" target="_blank" rel="noopener">Visit Site →</a>
-    </div>
-    <div class="venture-card coming-soon reveal">
-      <div class="venture-tag"><span class="dot"></span> Coming Soon</div>
-      <h3 class="venture-name">Next Venture</h3>
+      <ul class="venture-features">
+        <li>Plan events with budgets and checklists</li>
+        <li>Discover and book verified planners, vendors and venues</li>
+        <li>Manage guest lists for every event</li>
+        <li>Secure payments, with provider payouts released after the event</li>
+        <li>Coordinate teams and message collaborators in one place</li>
+        <li>Provider profiles, galleries and booking analytics</li>
+      </ul>
+      <div class="venture-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv" class="btn-primary" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a href="https://www.strictlybyiv.com" class="btn-ghost" target="_blank" rel="noopener">strictlybyiv.com</a>
+      </div>
+      <div class="venture-meta">
+        <span><strong>Launched</strong> 2026</span>
+        <span><strong>Market</strong> Nigeria</span>
+        <span><strong>Platforms</strong> Android · iOS</span>
+      </div>
+    </article>
+
+    <article class="venture-card in-lab reveal">
+      <div class="venture-tag">
+        <span class="status"><span class="lab-dot" aria-hidden="true"></span> In the lab</span>
+      </div>
+      <h3 class="venture-name">What's next</h3>
       <p class="venture-desc">
-        Something new is taking shape inside DervLabs. Details to follow as we get closer to launch.
+        We are researching and prototyping our next venture. Each one starts with a problem we have seen up close, and ships only when it holds up in the real world.
       </p>
-      <span class="venture-link">In Development</span>
-    </div>
-    <div class="venture-card coming-soon reveal">
-      <div class="venture-tag"><span class="dot"></span> Coming Soon</div>
-      <h3 class="venture-name">And Another</h3>
-      <p class="venture-desc">
-        The pipeline is full. DervLabs is always building, researching, and engineering what comes next.
-      </p>
-      <span class="venture-link">In Development</span>
-    </div>
+      <div class="venture-actions">
+        <a href="mailto:owner@dervlabs.io?subject=DervLabs%20ventures" class="btn-ghost">Talk to us about it</a>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
-  <p class="section-label reveal">What We Do</p>
-  <h2 class="about-title reveal" style="max-width:500px">Consultancy &amp;<br/><em>Bespoke Engineering</em></h2>
+<section class="services container" id="services">
+  <p class="section-label reveal">What we do</p>
+  <h2 class="section-title reveal">Consultancy &amp; <em>bespoke engineering.</em></h2>
+  <p class="section-intro reveal">
+    We work with founders and companies who need a dependable technical partner, from the first roadmap to a product running in production.
+  </p>
   <div class="services-grid">
     <div class="service-item reveal">
       <div class="service-icon">01 — Strategy</div>
-      <h3 class="service-name">Product Strategy</h3>
-      <p class="service-desc">From idea to roadmap. We help businesses define what to build, why it matters, and how to get there without burning resources.</p>
+      <h3 class="service-name">Product strategy</h3>
+      <p class="service-desc">From idea to roadmap. We help you decide what to build, why it matters and how to get there without spending money on the wrong things.</p>
     </div>
     <div class="service-item reveal">
-      <div class="service-icon">02 — Engineering</div>
-      <h3 class="service-name">Software Development</h3>
-      <p class="service-desc">Full-stack engineering with an emphasis on architecture that scales. We build backends, APIs, mobile apps, and everything in between.</p>
+      <div class="service-icon">02 — Mobile</div>
+      <h3 class="service-name">Mobile &amp; multiplatform apps</h3>
+      <p class="service-desc">Native-quality Android and iOS apps from one shared codebase, built to perform on the devices and networks your users actually have.</p>
+      <p class="service-stack">Kotlin Multiplatform · Compose · SwiftUI</p>
     </div>
     <div class="service-item reveal">
-      <div class="service-icon">03 — Research</div>
-      <h3 class="service-name">Technical Research</h3>
-      <p class="service-desc">Deep dives into emerging technology, market feasibility, and system design. We inform decisions with evidence, not assumptions.</p>
+      <div class="service-icon">03 — Platform</div>
+      <h3 class="service-name">Backends, payments &amp; marketplaces</h3>
+      <p class="service-desc">APIs and backend systems built to scale, with the hard parts done properly: local payment integration, payouts, identity verification, notifications and security.</p>
+      <p class="service-stack">Kotlin · Spring Boot · PostgreSQL</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-icon">04 — Research</div>
+      <h3 class="service-name">Technical research</h3>
+      <p class="service-desc">Deep dives into emerging technology, feasibility and system design, so your decisions rest on evidence rather than assumptions.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ABOUT -->
+<section class="about container" id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal">A studio that thinks <em>beyond the brief.</em></h2>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <div class="stat-num">2025</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">01</div>
+          <div class="stat-label">Venture live</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">NG</div>
+          <div class="stat-label">Ibadan, Nigeria</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">02</div>
+          <div class="stat-label">App platforms</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-body reveal">
+      <p>
+        DervLabs Ltd is a technology consultancy and venture studio headquartered in Nigeria. We work where engineering rigour meets product vision, building software that solves real problems for real people.
+      </p>
+      <p>
+        We are both a parent company and a creative engine. We incubate independent ventures across verticals, and every product under the DervLabs umbrella is held to the same standard of craft, reliability and long-term thinking.
+      </p>
+      <p>
+        Whether we are shipping for a client or growing one of our own products, the bar stays the same: engineering that scales, design that communicates and software that lasts.
+      </p>
+    </div>
+  </div>
+
+  <ul class="principles">
+    <li class="reveal">
+      <h3>We ship our own products</h3>
+      <p>We build, launch and support our own ventures. The advice we give clients comes from running software in production ourselves.</p>
+    </li>
+    <li class="reveal">
+      <h3>Built for local reality</h3>
+      <p>Naira payments, patchy networks, budget phones and trust gaps are design constraints from day one, not afterthoughts.</p>
+    </li>
+    <li class="reveal">
+      <h3>Built to last</h3>
+      <p>We favour clear architecture, automated testing and maintainable code, so what we hand over keeps working long after launch.</p>
+    </li>
+  </ul>
+</section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact container" id="contact">
   <div>
     <p class="section-label reveal">Contact</p>
-    <h2 class="contact-title reveal">Let's build<br/>something <em>worth building.</em></h2>
+    <h2 class="contact-title reveal">Let's build something <em>worth building.</em></h2>
   </div>
   <div class="contact-body reveal">
     <p>
-      Whether you're looking for a technical partner, exploring a collaboration, or just want to talk ideas — we're open. Drop us a line and we'll respond within 48 hours.
+      Looking for a technical partner, exploring a collaboration or just want to talk through an idea? Send us a note and we will reply within 48 hours.
     </p>
     <a href="mailto:owner@dervlabs.io" class="contact-email">owner@dervlabs.io</a>
     <div class="contact-info">
       <div class="contact-row">
-        <span class="contact-row-label">Location</span>
-        <span class="contact-row-val">Nigeria — West Africa</span>
+        <span class="contact-row-label">Phone</span>
+        <span class="contact-row-val"><a href="tel:+2348038223961">+234 803 822 3961</a></span>
       </div>
-
       <div class="contact-row">
         <span class="contact-row-label">Address</span>
-        <span class="contact-row-val">
-      9, Salami Somade Estate, Basorun<br />
-      Ibadan, Oyo, Nigeria
-    </span>
+        <address class="contact-row-val">
+          9, Salami Somade Estate, Basorun<br />
+          Ibadan, Oyo, Nigeria
+        </address>
       </div>
-
-      <div class="contact-row">
-        <span class="contact-row-label">Phone</span>
-        <span class="contact-row-val">
-      <a href="tel:+2348038223961" style="color: inherit; text-decoration: none;">+234 803 822 3961</a>
-    </span>
-      </div>
-
       <div class="contact-row">
         <span class="contact-row-label">Focus</span>
-        <span class="contact-row-val">African &amp; Global Markets</span>
-      </div>
-
-      <div class="contact-row">
-        <span class="contact-row-label">Email</span>
-        <span class="contact-row-val">
-      <a href="mailto:owner@dervlabs.io" style="color: inherit; text-decoration: none;">owner@dervlabs.io</a>
-    </span>
+        <span class="contact-row-val">African &amp; global markets</span>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <img src="/assets/dervlabs-logo-reversed.svg" alt="DervLabs" width="99" height="25" />
   </div>
-  <p class="footer-copy">© 2025 DervLabs. All rights reserved.</p>
+  <p class="footer-copy">© 2025–<span id="year">2026</span> DervLabs Ltd. All rights reserved.</p>
   <ul class="footer-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#ventures">Ventures</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="https://www.strictlybyiv.com" target="_blank" rel="noopener">StrictlyByIV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </footer>
 
 <script>
-  // Nav scroll
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
+  const toggle = document.getElementById('nav-toggle');
+
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const setMenu = (open) => {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? 'Close' : 'Menu';
+  };
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('visible'));
+  }
 </script>
 </body>
 </html>
