@@ -723,16 +723,42 @@
       .ventures, .services, .about, .contact { padding-top: 5rem; padding-bottom: 5rem; }
       .venture-card { padding: 2rem 1.5rem; }
       .venture-features { grid-template-columns: 1fr; }
-      .venture-actions { gap: 1rem; }
-      .venture-actions .btn-primary, .venture-actions .btn-secondary { width: 100%; text-align: center; padding-left: 1rem; padding-right: 1rem; white-space: nowrap; }
-      .venture-actions .btn-ghost { margin-top: 0.5rem; }
-      .featured .venture-actions .btn-ghost { width: 100%; justify-content: center; }
       .services-grid { grid-template-columns: 1fr; }
       .service-item { padding: 2rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .principles { grid-template-columns: 1fr; gap: 2rem; margin-top: 3.5rem; }
       .contact { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; text-align: center; }
+    }
+
+    /* Phone rhythm: desktop spacing was carrying down unchanged */
+    @media (max-width: 640px) {
+      .hero { min-height: auto; padding-top: 6rem; padding-bottom: 3.5rem; }
+      .hero-announce { margin-bottom: 1.75rem; }
+      .hero-sub { margin-top: 1.5rem; }
+      .hero-cta { margin-top: 2rem; }
+      .hero-acronym { margin-top: 2.5rem; padding-top: 1.25rem; }
+      .ventures, .services, .about, .contact { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+      .section-label { margin-bottom: 1rem; }
+      .section-intro { margin-top: 1rem; }
+      .ventures-grid, .services-grid { margin-top: 2.25rem; }
+      .venture-features { margin: 1.5rem 0 1.75rem; }
+      .venture-meta { margin-top: 1.5rem; padding-top: 1.25rem; }
+      .service-item { padding: 1.6rem 1.25rem; }
+      .about-grid { gap: 2rem; }
+      .about-stats { margin-top: 2rem; }
+      .principles { margin-top: 2.5rem; gap: 1.5rem; }
+      .contact { gap: 2rem; }
+      .contact-body > p { margin-bottom: 1.5rem; }
+      .contact-email { margin-bottom: 2rem; }
+
+      /* Primary actions stack full width and centre, like the store buttons */
+      .hero-cta { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+      .hero-cta .btn-primary { text-align: center; padding: 1rem; }
+      .hero-cta .btn-ghost { justify-content: center; padding: 0.75rem 0; }
+      .venture-actions { gap: 0.75rem; }
+      .venture-actions .btn-primary, .venture-actions .btn-secondary { width: 100%; text-align: center; padding: 1rem; white-space: nowrap; }
+      .featured .venture-actions .btn-ghost { width: 100%; justify-content: center; padding: 0.5rem 0; }
     }
   </style>
 </head>
