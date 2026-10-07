@@ -225,6 +225,11 @@
       transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
     .btn-secondary:hover { border-color: var(--copper); background: var(--accent-soft); transform: translateY(-1px); }
+    /* App Store held until Apple lists the app: greyed, not a link, countdown inside the button */
+    .btn-secondary.is-pending { color: var(--text-muted); border-color: var(--border); border-style: dashed; cursor: not-allowed; }
+    .btn-secondary.is-pending:hover { background: none; border-color: var(--border); transform: none; }
+    .btn-secondary .eta { display: inline-block; margin-left: 0.6rem; padding: 0.22rem 0.55rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500; line-height: 1.2; white-space: nowrap; }
+    .eta-inline { font-family: var(--font-mono); font-size: 0.92em; white-space: nowrap; }
     .btn-ghost {
       font-weight: 600;
       font-family: var(--font-sans);
@@ -788,7 +793,7 @@
   <div class="hero-orb" aria-hidden="true"></div>
   <a class="hero-announce" href="#ventures">
     <span class="live-dot" aria-hidden="true"></span>
-    <span><strong>StrictlyByIV is live</strong> — on Google Play &amp; the App Store</span>
+    <span data-ios-banner><strong>StrictlyByIV is live</strong> on Google Play · App Store <span class="eta-inline" data-eta="phrase"></span></span>
     <span class="arrow" aria-hidden="true">→</span>
   </a>
   <h1 class="hero-title">
@@ -838,7 +843,7 @@
       </ul>
       <div class="venture-actions">
         <a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv" class="btn-primary" target="_blank" rel="noopener">Get it on Google Play</a>
-        <a href="https://apps.apple.com/app/id6761930760" class="btn-secondary" target="_blank" rel="noopener">Download on the App Store</a>
+        <a class="btn-secondary is-pending" data-ios-link aria-disabled="true" target="_blank" rel="noopener">App Store <span class="eta" data-eta="short"></span></a>
         <a href="https://www.strictlybyiv.com" class="btn-ghost" target="_blank" rel="noopener">strictlybyiv.com</a>
       </div>
       <div class="venture-meta">
@@ -1032,6 +1037,41 @@
   } else {
     reveals.forEach(el => el.classList.add('visible'));
   }
+</script>
+<script>
+  // StrictlyByIV iOS 1.0 is in App Review. Until Apple lists the app, the App Store button is held
+  // and counts down to IOS_ETA. Apple's public lookup is checked on load, so approval releases it
+  // with no redeploy; IOS_LIVE = true releases it by hand.
+  (function () {
+    var IOS_LIVE = false, IOS_ETA = Date.parse('2026-10-08T18:00:00+01:00'), APP_ID = '6761930760';
+    var IOS = 'https://apps.apple.com/app/id' + APP_ID, live = IOS_LIVE;
+    // The button pill ticks as a clock (26:14:05); the banner reads naturally ("in 26h 14m").
+    function tick() {
+      var t = Math.max(0, Math.round((IOS_ETA - Date.now()) / 1000));
+      var h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60;
+      function two(n) { return (n < 10 ? '0' : '') + n; }
+      var clock = t ? two(h) + ':' + two(m) + ':' + two(s) : 'Any moment';
+      var phrase = t ? 'in ' + (h ? h + 'h ' + two(m) + 'm' : m + 'm ' + two(s) + 's') : 'any moment now';
+      document.querySelectorAll('[data-eta]').forEach(function (el) {
+        el.textContent = el.dataset.eta === 'phrase' ? phrase : clock;
+      });
+    }
+    function release() {
+      live = true;
+      var btn = document.querySelector('[data-ios-link]');
+      if (btn) { btn.href = IOS; btn.classList.remove('is-pending'); btn.removeAttribute('aria-disabled'); btn.textContent = 'Download on the App Store'; }
+      var banner = document.querySelector('[data-ios-banner]');
+      if (banner) banner.innerHTML = '<strong>StrictlyByIV is live</strong> — on Google Play &amp; the App Store';
+    }
+    if (live) { release(); return; }
+    tick();
+    var timer = setInterval(function () { if (live) clearInterval(timer); else tick(); }, 1000);
+    window.__dlAppLookup = function (r) { if (r && r.resultCount > 0 && !live) release(); };
+    var lookup = document.createElement('script');
+    lookup.src = 'https://itunes.apple.com/lookup?id=' + APP_ID + '&country=ng&callback=__dlAppLookup';
+    lookup.async = true;
+    document.head.appendChild(lookup);
+  })();
 </script>
 </body>
 </html>
