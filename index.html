@@ -1045,13 +1045,13 @@
   (function () {
     var IOS_LIVE = false, IOS_ETA = Date.parse('2026-10-08T18:00:00+01:00'), APP_ID = '6761930760';
     var IOS = 'https://apps.apple.com/app/id' + APP_ID, live = IOS_LIVE;
-    // The button pill ticks as a clock (26:14:05); the banner reads naturally ("in 26h 14m").
+    // The button pill ticks as a clock (26:14:05); the banner ticks too ("in 26h 14m 05s").
     function tick() {
       var t = Math.max(0, Math.round((IOS_ETA - Date.now()) / 1000));
       var h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60;
       function two(n) { return (n < 10 ? '0' : '') + n; }
       var clock = t ? two(h) + ':' + two(m) + ':' + two(s) : 'Any moment';
-      var phrase = t ? 'in ' + (h ? h + 'h ' + two(m) + 'm' : m + 'm ' + two(s) + 's') : 'any moment now';
+      var phrase = t ? 'in ' + (h ? h + 'h ' + two(m) + 'm ' + two(s) + 's' : m + 'm ' + two(s) + 's') : 'any moment now';
       document.querySelectorAll('[data-eta]').forEach(function (el) {
         el.textContent = el.dataset.eta === 'phrase' ? phrase : clock;
       });
